@@ -1,0 +1,115 @@
+*{
+    font-family: poppins;
+}
+.d-flex{
+    display: flex;
+}
+.justify-around{
+    justify-content: space-around;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.m-auto{
+    margin: auto;
+}
+.text-white{
+    color:var(--ion-color-rmwhite)
+}
+.block{
+    display: block;
+}
+.grid{
+    display: grid;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.text-center{
+    text-align: center;
+}
+.text-md{
+    font-size: 24px;
+}
+.p-20{
+    padding: 20px;
+}
+.l-30{
+    line-height: 30px;
+}
+.header-ios ion-toolbar:last-of-type {
+    --border-width: 0 0 0px; 
+}
+.mb-20{
+    margin-bottom: 20px;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.align-center{
+    align-items: center;
+}
+
+.p-5{
+    padding: 5px;
+}
+.p-4{
+    padding: 4px;
+}
+.p-10{
+    padding: 10px!important;
+}
+.pl-10{
+    padding-left: 10px!important;
+}
+.italic{
+    font-style: italic;
+}
+.absolute{
+    position: absolute;
+}
+.z-1{
+    z-index: -1;
+}
+.overflow-x{
+    overflow: scroll;
+}
+.pl-15{
+    padding-left: 15px;
+}
+.v-hidden{
+    visibility: hidden;
+}
+.w-full{
+    width: 100%;
+}
+.mt--20{
+    margin-top: -20px;
+}
+.font-bold{
+    font-weight: bold!important;
+}
+.mt-15{
+    margin-top: 15px;
+}
+.h-50{
+    height: 50px;
+}
+.pr-20{
+    padding-right: 20px;
+}
+.br-20{
+    border-radius: 20px;
+}
+.m-0{
+    margin: 0;
+}

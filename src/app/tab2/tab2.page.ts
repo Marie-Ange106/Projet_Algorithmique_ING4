@@ -11,6 +11,7 @@ export class Tab2Page {
    search = false;
    forfaits:Forfait[] =[];
    operateurs = new Set();
+   selectOp : any;
    constructor(private forfaitsService:ForfaitsService) { }
    
    ionViewDidEnter(){
@@ -30,6 +31,11 @@ export class Tab2Page {
 
   search_package(){
     this.search=true;
+  }
+
+  choosedOp(operator:any){
+    this.selectOp = operator;
+    this.forfaits = this.forfaits.filter(forfait => forfait.operateur == operator);
   }
 
 }

@@ -74,7 +74,54 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --ion-color-frgreenextralight: #f8faff;
+	--ion-color-frgreenextralight-rgb: 248,250,255;
+	--ion-color-frgreenextralight-contrast: #000000;
+	--ion-color-frgreenextralight-contrast-rgb: 0,0,0;
+	--ion-color-frgreenextralight-shade: #dadce0;
+	--ion-color-frgreenextralight-tint: #f9fbff;
+
+  --ion-color-frgreen: #277d40;
+	--ion-color-frgreen-rgb: 39,125,64;
+	--ion-color-frgreen-contrast: #ffffff;
+	--ion-color-frgreen-contrast-rgb: 255,255,255;
+	--ion-color-frgreen-shade: #226e38;
+	--ion-color-frgreen-tint: #3d8a53;
+
+  --ion-color-frgreenlight: #63ad52d4;
+	--ion-color-frgreenlight-rgb: 173,82,212;
+	--ion-color-frgreenlight-contrast: #ffffff;
+	--ion-color-frgreenlight-contrast-rgb: 255,255,255;
+	--ion-color-frgreenlight-shade: #9848bb;
+	--ion-color-frgreenlight-tint: #b563d8;
 }
+
+.ion-color-frgreenlight {
+	--ion-color-base: var(--ion-color-frgreenlight);
+	--ion-color-base-rgb: var(--ion-color-frgreenlight-rgb);
+	--ion-color-contrast: var(--ion-color-frgreenlight-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-frgreenlight-contrast-rgb);
+	--ion-color-shade: var(--ion-color-frgreenlight-shade);
+	--ion-color-tint: var(--ion-color-frgreenlight-tint);
+}
+.ion-color-frgreenextralight {
+	--ion-color-base: var(--ion-color-frgreenextralight);
+	--ion-color-base-rgb: var(--ion-color-frgreenextralight-rgb);
+	--ion-color-contrast: var(--ion-color-frgreenextralight-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-frgreenextralight-contrast-rgb);
+	--ion-color-shade: var(--ion-color-frgreenextralight-shade);
+	--ion-color-tint: var(--ion-color-frgreenextralight-tint);
+}
+.ion-color-frgreen {
+	--ion-color-base: var(--ion-color-frgreen);
+	--ion-color-base-rgb: var(--ion-color-frgreen-rgb);
+	--ion-color-contrast: var(--ion-color-frgreen-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-frgreen-contrast-rgb);
+	--ion-color-shade: var(--ion-color-frgreen-shade);
+	--ion-color-tint: var(--ion-color-frgreen-tint);
+}
+
 
 @media (prefers-color-scheme: dark) {
   /*

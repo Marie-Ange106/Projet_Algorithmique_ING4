@@ -1,7 +1,6 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar color="dark">
-    <!-- <ion-title> Tab 2 </ion-title> -->
-    <img class="" src="assets/icon/telephone.png" alt="" />
+  <ion-toolbar color="frgreen">
+    
   </ion-toolbar>
 </ion-header>
 
@@ -10,10 +9,13 @@
   
   <!-- --------------------------Formulaire---------------------------- -->
   <ion-card class="container-form">
+    <div>
+      <ion-img class="logo m-auto" src="assets/images/logo2.png" alt=""></ion-img>
+    </div>
     <form (ngSubmit)="logForm()">
       <div class="form">
         <div class="input">
-          <ion-label color="dark">Mon budgets <span>(FCFA)</span></ion-label>
+          <ion-label color="dark">Mon budget <span>(FCFA)</span></ion-label>
           <div class="item">
             <ion-item lines="none">
               <ion-icon slot="start" name="cash-outline"></ion-icon>
@@ -33,8 +35,9 @@
             <ion-col size="4">
               <div class="item">
                 <ion-item lines="none">
-                  <ion-icon slot="start" name="mail-outline"></ion-icon>
+                  <ion-icon slot="start" name="mail-outline" class="m-0"></ion-icon>
                   <ion-input
+                    class="pl-10"
                     color="dark"
                     type="number"
                     placeholder="0-3"
@@ -47,8 +50,9 @@
             <ion-col size="4">
               <div class="item">
                 <ion-item lines="none">
-                  <ion-icon slot="start" name="call-outline"></ion-icon>
+                  <ion-icon slot="start" name="call-outline" class="m-0"></ion-icon>
                   <ion-input
+                    class="pl-10"
                     color="dark"
                     type="number"
                     placeholder="0-3"
@@ -62,8 +66,9 @@
             <ion-col size="4">
               <div class="item">
                 <ion-item lines="none">
-                  <ion-icon slot="start" name="wifi-outline"></ion-icon>
+                  <ion-icon slot="start" name="wifi-outline" class="m-0"></ion-icon>
                   <ion-input
+                    class="pl-10"
                     color="dark"
                     type="number"
                     placeholder="0-3"
@@ -90,7 +95,7 @@
 
         <br />
         <ion-button
-          color="primary"
+          color="frgreen"
           expand="block"
           shape="round"
           type="submit">Rechercher</ion-button>
@@ -99,7 +104,7 @@
   </ion-card>
 
   <!------------------------- Résulat-------------------------------- -->
-  <ion-card color="primary" class="result" *ngIf="search">
+  <ion-card color="frgreen" class="result" *ngIf="search">
     <!-- Hemle -->
     <!-- <ion-card>
       <ion-card-title>Chez Hemle</ion-card-title>

@@ -1,32 +1,80 @@
 <ion-header [translucent]="true" class="ion-no-border">
-  <ion-toolbar color="dark">
-    <ion-title> Tab 2 </ion-title>
+  <ion-toolbar color="base">
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
+  <!-- <div class="content-img m-auto">
+    <img src="assets/images/bg1.png"/>
+  </div> -->
   <div class="main-header">
-    <ion-label>Nos forfaits</ion-label>
+    <ion-label color="frgreen"><h1 class="font-bold  uppercase text-center">Liste Des Forfaits</h1></ion-label>
   </div>
   <!-- Résulat -->
-  <ion-card class="">
-    
-      <ion-grid *ngFor="let operator of operateurs">
-        <ion-row>
-          <ion-col size="12">
-            <ion-label>Chez {{operator}} </ion-label>
-          </ion-col>
-        </ion-row>
-        <ion-row *ngFor="let forfait of forfaits">
-          <ion-col *ngIf="forfait.operateur === operator"> {{forfait.nom}} </ion-col>
-          <ion-col *ngIf="forfait.operateur === operator"> {{forfait.sms}} </ion-col>
-          <ion-col *ngIf="forfait.operateur === operator"> {{forfait.appel}} </ion-col>
-          <ion-col *ngIf="forfait.operateur === operator && forfait.data > 1"> {{forfait.data}} Go</ion-col>
-          <ion-col *ngIf="forfait.operateur === operator && forfait.data < 1"> {{forfait.data * 1000}} Mo </ion-col>
-          <ion-col *ngIf="forfait.operateur === operator"> {{forfait.prix}} </ion-col>
-        </ion-row>
-       
-      </ion-grid>
-  
-  </ion-card>
+  <div class="d-flex overflow-x">
+    <div *ngFor="let operator of operateurs" class="pl-15">
+      <h3><ion-text (click)="choosedOp(operator)" [ngClass]="{ 'tablinks': selectOp == operator}">{{operator}}</ion-text></h3>
+    </div>
+  </div>
+  <div class="">
+    <!-- <ion-grid *ngFor="let operator of operateurs"> -->
+    <!-- <ion-grid> -->
+      <!-- <ion-row>
+        <ion-col size="12">
+          <ion-label>Chez {{operator}} </ion-label>
+        </ion-col>
+      </ion-row> -->
+      <!-- <ion-row>
+        <ion-col>
+          <ion-label>Forfaits</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Sms</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Appels</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Data</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Validite</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Prix</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let forfait of forfaits">
+        <ion-col> {{forfait.nom}} </ion-col>
+        <ion-col> {{forfait.sms}} </ion-col>
+        <ion-col> {{forfait.appel}} </ion-col>
+        <ion-col *ngIf="forfait.data > 1"> {{forfait.data}} Go</ion-col>
+        <ion-col *ngIf="forfait.data < 1"> {{forfait.data * 1000}} Mo </ion-col>
+        <ion-col> {{forfait.validite}} </ion-col>
+        <ion-col> {{forfait.prix}} </ion-col>
+      </ion-row>
+      
+    </ion-grid> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let forfait of forfaits">
+          <!-- <div> -->
+          <ion-card color="frgreenextralight" class="br-20 card-forf m-0">
+            <ion-header class="mt--20 h-50"><h2 class="text-center">{{forfait.nom}}</h2>
+            </ion-header>
+            <div class="mt-10">
+              <div class="d-flex justify-between mt-5"><div>SMS</div><div>{{forfait.sms}}</div></div>
+              <div class="d-flex justify-between mt-5"><div>APPELS</div><div>{{forfait.appel}}</div></div>
+              <div class="d-flex justify-between mt-5" *ngIf="forfait.data > 1"><div>DATA</div><div>{{forfait.data}} Go</div></div>
+              <div class="d-flex justify-between mt-5" *ngIf="forfait.data < 1"><div>DATA</div><div>{{forfait.data * 1000}} Mo</div></div>
+              <div class="d-flex justify-between mt-5"><div>VALIDITE</div><div>{{forfait.validite}}</div></div>
+              <div class="d-flex justify-between mt-5"><div>PRIX</div><div>{{forfait.prix}}</div></div>
+            </div>
+             <!-- </div> -->
+          </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
