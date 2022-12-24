@@ -1,0 +1,152 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="dark">
+    <!-- <ion-title> Tab 2 </ion-title> -->
+    <img class="" src="assets/icon/telephone.png" alt="" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <div class="main-header"></div>
+  
+  <!-- --------------------------Formulaire---------------------------- -->
+  <ion-card class="container-form">
+    <form (ngSubmit)="logForm()">
+      <div class="form">
+        <div class="input">
+          <ion-label color="dark">Mon budgets <span>(FCFA)</span></ion-label>
+          <div class="item">
+            <ion-item lines="none">
+              <ion-icon slot="start" name="cash-outline"></ion-icon>
+              <ion-input
+                color="dark"
+                type="number"
+                [(ngModel)]="prix" name="Budget"
+                placeholder="1000"
+              ></ion-input>
+            </ion-item>
+          </div>
+        </div>
+
+        <div class="input">
+          <ion-label color="dark">Mes priorités <span>(SMS-Appels-Data)</span></ion-label>
+          <ion-row size="12">
+            <ion-col size="4">
+              <div class="item">
+                <ion-item lines="none">
+                  <ion-icon slot="start" name="mail-outline"></ion-icon>
+                  <ion-input
+                    color="dark"
+                    type="number"
+                    placeholder="0-3"
+                     name="SMS" (change) = "updatePriority($event, 0)"
+                  ></ion-input>
+                </ion-item>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="item">
+                <ion-item lines="none">
+                  <ion-icon slot="start" name="call-outline"></ion-icon>
+                  <ion-input
+                    color="dark"
+                    type="number"
+                    placeholder="0-3"
+                    name="Appel"
+                    (change) = "updatePriority($event, 1)"
+                  ></ion-input>
+                </ion-item>
+              </div>
+            </ion-col>
+
+            <ion-col size="4">
+              <div class="item">
+                <ion-item lines="none">
+                  <ion-icon slot="start" name="wifi-outline"></ion-icon>
+                  <ion-input
+                    color="dark"
+                    type="number"
+                    placeholder="0-3"
+                    name="Data"
+                    (change) = "updatePriority($event, 2)"
+                  ></ion-input>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="input">
+          <ion-label color="dark"
+            >Validité du forfait <span>(Jours)</span></ion-label
+          >
+          <div class="item">
+            <ion-item lines="none">
+              <ion-icon slot="start" name="today-outline"></ion-icon>
+              <ion-input color="dark" type="number" placeholder="" [(ngModel)]="validite" name="Validite"></ion-input>
+            </ion-item>
+          </div>
+        </div>
+
+        <br />
+        <ion-button
+          color="primary"
+          expand="block"
+          shape="round"
+          type="submit">Rechercher</ion-button>
+      </div>
+    </form>
+  </ion-card>
+
+  <!------------------------- Résulat-------------------------------- -->
+  <ion-card color="primary" class="result" *ngIf="search">
+    <!-- Hemle -->
+    <!-- <ion-card>
+      <ion-card-title>Chez Hemle</ion-card-title>
+      <img slot="start" src="assets/icon/carte-sim.png" alt="" />
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>Code</ion-col>
+          <ion-col>SMS</ion-col>
+          <ion-col>Appels</ion-col>
+          <ion-col>Data</ion-col>
+          <ion-col>Prix</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>#</ion-col>
+          <ion-col>0</ion-col>
+          <ion-col>0</ion-col>
+          <ion-col>3 GB</ion-col>
+          <ion-col>500</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card> -->
+    <!-- Mango -->
+    <ion-card>
+      <ion-card-title>Chez Mango</ion-card-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Forfaits</ion-col>
+          <ion-col>SMS</ion-col>
+          <ion-col>Appels</ion-col>
+          <ion-col>Data</ion-col>
+          <ion-col>Prix</ion-col>
+          <ion-col>Nombre</ion-col>
+          <ion-col>Total</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let val of forfait | keyvalue">
+      
+          <ion-col> {{val.value.forfait.nom}} </ion-col>
+          <ion-col> {{val.value.forfait.sms}} </ion-col>
+          <ion-col> {{val.value.forfait.appel}} </ion-col>
+          <ion-col *ngIf="val.value.forfait.data > 1">{{val.value.forfait.data}} Go</ion-col>
+          <ion-col *ngIf="val.value.forfait.data < 1">{{val.value.forfait.data * 1000}} Mo</ion-col>
+          <ion-col>{{val.value.forfait.prix}}</ion-col>
+          <ion-col>x {{val.value.nb}}</ion-col>
+          <ion-col>{{val.value.forfait.prix * val.value.nb}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-card>
+</ion-content>

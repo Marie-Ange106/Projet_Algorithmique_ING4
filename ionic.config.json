@@ -1,0 +1,7 @@
+{
+  "name": "projetAlgo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
