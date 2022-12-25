@@ -57,18 +57,18 @@
     </ion-grid> -->
     <ion-grid>
       <ion-row>
-        <ion-col size="6" *ngFor="let forfait of forfaitsPerOp">
+        <ion-col size="6" *ngFor="let forfait of forfaitsPerOp" class="mb-20">
           <!-- <div> -->
           <ion-card color="frgreenextralight" class="br-20 card-forf m-0">
-            <div class="mt--20 h-50"><h2 class="text-center">{{forfait.nom}}</h2>
+            <div class="mt--20 h-50 mb-20"><h2 class="text-center">{{forfait.nom}}</h2>
             </div>
-            <div class="mt-10">
+            <div>
               <div class="d-flex justify-between mt-5"><div>SMS</div><div>{{forfait.sms}}</div></div>
-              <div class="d-flex justify-between mt-5"><div>APPELS</div><div>{{forfait.appel}}</div></div>
+              <div class="d-flex justify-between mt-5"><div>APPELS</div><div>{{forfait.appel}} Fcfa</div></div>
               <div class="d-flex justify-between mt-5" *ngIf="forfait.data > 1"><div>DATA</div><div>{{forfait.data}} Go</div></div>
               <div class="d-flex justify-between mt-5" *ngIf="forfait.data < 1"><div>DATA</div><div>{{forfait.data * 1000}} Mo</div></div>
-              <div class="d-flex justify-between mt-5"><div>VALIDITE</div><div>{{forfait.validite}}</div></div>
-              <div class="d-flex justify-between mt-5"><div>PRIX</div><div>{{forfait.prix}}</div></div>
+              <div class="d-flex justify-between mt-5"><div>VALIDITE</div><div>{{forfait.validite}} Jour(s)</div></div>
+              <div class="d-flex justify-between mt-5"><div>PRIX</div><div>{{forfait.prix}} Fcfa</div></div>
             </div>
              <!-- </div> -->
           </ion-card>

@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
+  <div class="mb-90">
   <div class="main-header"></div>
   
   <!-- --------------------------Formulaire---------------------------- -->
@@ -15,7 +16,7 @@
     <form (ngSubmit)="logForm()">
       <div class="form">
         <div class="input">
-          <ion-label color="dark">Mon budget <span>(FCFA)</span></ion-label>
+          <ion-label color="dark">Mon budget <span>(Fcfa)</span></ion-label>
           <div class="item">
             <ion-item lines="none" [ngClass]="{ 'error-input': prixInvalid}">
               <ion-icon slot="start" name="cash-outline"></ion-icon>
@@ -30,7 +31,7 @@
         </div>
         <div *ngIf="prixInvalid"><h6><ion-text color="danger">Somme Invalide ( < 99 ou >= 1000 000)</ion-text></h6></div>
         <div class="input mt-26">
-          <ion-label color="dark">Mes priorités <span>(SMS-Appels-Data)</span></ion-label>
+          <ion-label color="dark">Mes priorités <span>(Sms-Appels-Data)</span></ion-label>
           <ion-row size="12">
             <ion-col size="4">
               <div class="item">
@@ -160,4 +161,5 @@
       </ion-grid>
     </ion-card>
   </ion-card>
+</div>
 </ion-content>

@@ -26,7 +26,6 @@ export class Tab2Page {
           }
          )
          this.forfaitsPerOp = this.forfaits.filter(forfait => forfait.operateur == this.selectOp);
-         console.log(this.forfaits);
        }
      )
      
@@ -38,7 +37,6 @@ export class Tab2Page {
   }
 
   choosedOp(operator:any){
-    console.log(this.forfaits);
     this.selectOp = operator;
     this.forfaitsPerOp = this.forfaits.filter(forfait => forfait.operateur == operator);
   }
