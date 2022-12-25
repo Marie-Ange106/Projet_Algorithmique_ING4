@@ -9,9 +9,10 @@ import { ForfaitsService } from '../services/forfaits.service';
 })
 export class Tab2Page {
    search = false;
-   forfaits:Forfait[] =[];
+   forfaits:Forfait[] = [];
+   forfaitsPerOp:Forfait[] = [];
    operateurs = new Set();
-   selectOp : any;
+   selectOp  = 'Mango';
    constructor(private forfaitsService:ForfaitsService) { }
    
    ionViewDidEnter(){
@@ -24,8 +25,11 @@ export class Tab2Page {
             this.operateurs.add(data.operateur)
           }
          )
+         this.forfaitsPerOp = this.forfaits.filter(forfait => forfait.operateur == this.selectOp);
+         console.log(this.forfaits);
        }
      )
+     
    };
 
 
@@ -34,8 +38,9 @@ export class Tab2Page {
   }
 
   choosedOp(operator:any){
+    console.log(this.forfaits);
     this.selectOp = operator;
-    this.forfaits = this.forfaits.filter(forfait => forfait.operateur == operator);
+    this.forfaitsPerOp = this.forfaits.filter(forfait => forfait.operateur == operator);
   }
 
 }
