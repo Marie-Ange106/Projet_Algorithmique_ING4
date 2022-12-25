@@ -12,6 +12,6 @@ export class ForfaitsService {
   constructor(private httpClient:HttpClient) { }
 
   getForfait(): Observable<Forfait[]>{
-    return this.httpClient.get<Forfait[]>("/assets/forfait.json")
+    return this.httpClient.get<Forfait[]>("/assets/forfaits.json")
   }
 }

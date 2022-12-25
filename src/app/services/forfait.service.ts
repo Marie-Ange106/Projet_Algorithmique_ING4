@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 
 
 export class ForfaitService {
-  
+
   cache: number[][] = [];
   prix = 0;
   val = 0;
@@ -22,7 +22,7 @@ export class ForfaitService {
   }
 
   public getAllForfait(): Observable<Forfait[]> {
-    return this.http.get<Forfait[]>("assets/forfait.json");
+    return this.http.get<Forfait[]>("assets/forfaits.json");
   }
 
   public printBestForfaits(forfaits: Forfait[], prix: number, jours: number, priorite: Priorite[]): ForfaitValeur[] {
@@ -31,26 +31,65 @@ export class ForfaitService {
     let forfaitsValeur: ForfaitValeur[] = [];
     forfaits = this.filterForfaitParJours(jours, forfaits);
     forfaitsValeur = this.valorisationForfait(forfaits, priorite);
+
+   if(forfaitsValeur.length > 0) {
+    forfaitsValeur = forfaitsValeur.filter(data => {
+    
+      return (data.valeur > 0);
+    })
     //console.log(forfaitsValeur);
     while (this.prix > 0) {
-      this.initCache(forfaits, this.prix);  
+      this.initCache(forfaits, this.prix);
       
       forFaitsOptimaux = forFaitsOptimaux.concat(this.getOptimalForfait(forfaitsValeur));
-      console.log(this.prix, forFaitsOptimaux);
-      
-      if(this.val == 0) {
+      //console.log(this.prix, forFaitsOptimaux);
+      /*     priorite.sort((a, b) => -(a.valeur - b.valeur))
+          console.log(priorite);
+          
+          forFaitsOptimaux.forEach(data => {
+    
+            if(priorite[0].composante === ForfaitC.SMS.toString() && priorite[0].valeur> 0 && data.forfait.sms == 0) {
+              let indexOfElt = forFaitsOptimaux.indexOf(data);
+              forFaitsOptimaux.splice(indexOfElt);
+              console.log("sms");
+              
+              
+            }
+            if(priorite[0].composante === ForfaitC.APPEL.toString() && priorite[0].valeur> 0 && data.forfait.appel == 0) {
+              let indexOfElt = forFaitsOptimaux.indexOf(data);
+              forFaitsOptimaux.splice(indexOfElt);
+              console.log("appel");
+              
+            }
+            if(priorite[0].composante === ForfaitC.DATA.toString() && priorite[0].valeur> 0 && data.forfait.data == 0) {
+              let indexOfElt = forFaitsOptimaux.indexOf(data);
+              console.log(indexOfElt);
+              this.prix += data.forfait.prix;
+              this.val -= data.valeur;
+              forFaitsOptimaux.splice(indexOfElt);
+              console.log("data");
+              
+            }
+            console.log(forFaitsOptimaux);
+            
+          }) */
+
+      if (this.val == 0) {
         this.prix = 0;
         break;
       }
     }
-    
-    
+
+
     return forFaitsOptimaux;
-  } 
+   } else {
+    return [];
+   }
+  }
   private initCache(forfaitVals: Forfait[], w: number) {
     this.cache = new Array(forfaitVals.length);
     for (let index = 0; index < forfaitVals.length; index++) {
-      this.cache[index] = new Array(w+1)
+      this.cache[index] = new Array(w + 1)
 
     }
 
@@ -66,7 +105,8 @@ export class ForfaitService {
     //System.out.println(i);
     /*if (w - 1 < 0)
         return 0;*/
-
+    console.log(i,w);
+    
     if (this.cache[i][w] > 0)
       return this.cache[i][w];
     if (i == 0)
@@ -119,13 +159,16 @@ export class ForfaitService {
         prioritySMS = data.valeur;
     }
     //console.log(priorityCall, priorityData, prioritySMS);
-    
+
+    //console.log();
 
 
     let forfaitVals: ForfaitValeur[] = [];
     forfaits.forEach(forfait => {
-      let value = (priorityData * (forfait.data / meanData) + priorityCall * (forfait.appel / meanCall) +
+      let value = (priorityData * ((forfait.data) / meanData) + priorityCall * (forfait.appel / meanCall) +
         prioritySMS * (forfait.sms / meanSMS));
+      // console.log(value, priorityData,forfait.data, meanData, priorityCall, forfait.appel, meanCall, prioritySMS, forfait.sms, meanSMS );
+
       let forfaitValeur: ForfaitValeur = new ForfaitValeur();
       forfaitValeur.forfait = forfait;
       forfaitValeur.valeur = value;
@@ -155,34 +198,54 @@ export class ForfaitService {
   }
 
   private getOptimalForfait(forfaits: ForfaitValeur[]): ForfaitValeur[] {
-    let i = forfaits.length-1;
+    let i = forfaits.length - 1;
     this.val = this.valMaxSacADosVDtd(forfaits, this.prix, forfaits.length - 1);
-    console.log("La valeur max de son prix est "+ this.val);
-    let forfaitsOptimaux: ForfaitValeur[] = [];
-    let j = this.prix;
-    while (j > 0 && this.cache[i][j] == this.cache[i][j-1]) {
+    console.log("La valeur max de son prix est " + this.val);
+    if (this.val != 0) {
+      let forfaitsOptimaux: ForfaitValeur[] = [];
+      let j = this.prix;
+      while (j > 0 && this.cache[i][j] == this.cache[i][j - 1]) {
         j--;
 
-    }
-    while (j > 0 && i > 0) {
-        while (i >0 && this.cache[i][j]== this.cache[i - 1][j]) {
-            i--;
+      }
+      while (j > 0 && i > 0) {
+        while (i > 0 && this.cache[i][j] == this.cache[i - 1][j]) {
+          i--;
         }
-        if(i >= 0)
-            j -= forfaits[i].forfait.prix;
+        if (i >= 0)
+          j -= forfaits[i].forfait.prix;
         if (j >= 0 && i >= 0) {
           this.prix -= forfaits[i].forfait.prix;
           forfaitsOptimaux.push(forfaits[i]);
         }
-        
+
         i--;
 
+      }
+      return forfaitsOptimaux;
+    } else {
+      return [];
     }
     //console.log(forfaitsOptimaux.length);
-    
-    return forfaitsOptimaux;
+
+
   }
 
 
+  getForfaitByOperator(forfaits: Forfait[], operator: Set<string>) {
+    let forfaitsByOp = new Map<string, Forfait[]>();
+    operator.forEach(val => {
+      forfaitsByOp.set(val, this.getForfaitOfOneOperator(forfaits, val))
+    })
+    return forfaitsByOp;
+  }
+
+  getForfaitOfOneOperator(forfaits: Forfait[], operator: string) {
+    let temp: Forfait[] = [];
+    temp = forfaits.filter((val) => val.operateur == operator)
+    //console.log(temp);
+
+    return temp;
+  }
 
 }

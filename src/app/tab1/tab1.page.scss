@@ -32,6 +32,7 @@ ion-toolbar{
   margin-top: -376px;
   transform: translateY(10vh);
   padding-bottom: 2vh;
+  margin-bottom: 100px
 }
 .result {
   margin-top: 105px;
@@ -48,13 +49,16 @@ ion-toolbar{
   // border-radius: 18px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
-  margin-bottom: 26px;
+  // margin-bottom: 26px;
   margin-top: 8px;
   box-shadow: 0 10px 30px rgba(57, 71, 82, 0.23);
 }
 ion-item:focus-within{
   // background-color: red!important;
   border: 2px solid var(--ion-color-frgreen);
+}
+.error-input{
+  border: 2px solid var(--ion-color-danger);
 }
 ion-input {
   width: 90%;

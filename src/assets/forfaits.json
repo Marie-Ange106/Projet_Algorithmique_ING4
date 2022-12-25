@@ -1,390 +1,407 @@
 [
  {
-  "Nom": "Mango Plenty J",
+  "operateur": "Mango",
+  "nom": "Mango Plenty J",
   "sms": 25,
   "appel": 0,
-  "data MO ou Go": 0,
-  "Validité": 1,
-  "Prtx": 100
+  "data": 0,
+  "validite": 1,
+  "prix": 100
  },
  {
-  "Nom": "Mango Plenty S",
+  "operateur": "Mango",
+  "nom": "Mango Plenty S",
   "sms": 1000,
   "appel": 1460,
-  "data MO ou Go": 0,
-  "Validité": 7,
-  "Prtx": 250
+  "data": 0,
+  "validite": 7,
+  "prix": 250
  },
  {
-  "Nom": "Mango Plenty M",
+  "operateur": "Mango",
+  "nom": "Mango Plenty M",
   "sms": 10000,
   "appel": 1950,
-  "data MO ou Go": 0,
-  "Validité": 30,
-  "Prtx": 450
+  "data": 0,
+  "validite": 30,
+  "prix": 450
  },
  {
-  "Nom": "Mango Giga 3J 1200",
+  "operateur": "Mango",
+  "nom": "Mango Giga 3J 1200",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 1,
-  "Validité": 3,
-  "Prtx": 1200
+  "data": 1,
+  "validite": 3,
+  "prix": 1200
  },
  {
-  "Nom": "Mango Giga 3J 5400",
+  "operateur": "Mango",
+  "nom": "Mango Giga 3J 5400",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 4,
-  "Validité": 3,
-  "Prtx": 5400
+  "data": 4,
+  "validite": 3,
+  "prix": 5400
  },
  {
-  "Nom": "Mango Giga 7J 2650",
+  "operateur": "Mango",
+  "nom": "Mango Giga 7J 2650",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 7,
-  "Validité": 7,
-  "Prtx": 2650
+  "data": 7,
+  "validite": 7,
+  "prix": 2650
  },
  {
-  "Nom": "Mango Giga 7J 5400",
+  "operateur": "Mango",
+  "nom": "Mango Giga 7J 5400",
+  "sms": 0,
+  "appel":0,
+  "data": 14,
+  "validite": 7,
+  "prix": 5600
+ },
+ {
+  "operateur": "Mango",
+  "nom": "Mango Giga 7J 15400",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 14,
-  "Validité": 7,
-  "Prtx": 5600
+  "data": 35,
+  "validite": 7,
+  "prix": 15400
  },
  {
-  "Nom": "Mango Giga 7J 15400",
+  "operateur": "Mango",
+  "nom": "Mango Giga 30J 10000",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 35,
-  "Validité": 7,
-  "Prtx": 15400
+  "data": 30,
+  "validite": 30,
+  "prix": 10000
  },
  {
-  "Nom": "Mango Giga 30J 10000",
+  "operateur": "Mango",
+  "nom": "Mango Giga 30J 21500",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 30,
-  "Validité": 30,
-  "Prtx": 10000
+  "data": 60,
+  "validite": 30,
+  "prix": 21500
  },
  {
-  "Nom": "Mango Giga 30J 21500",
-  "sms": 0,
-  "appel": 0,
-  "data MO ou Go": 60,
-  "Validité": 30,
-  "Prtx": 21500
- },
- {
-  "Nom": "Mango Flex 300-1",
+  "operateur": "Mango",
+  "nom": "Mango Flex 300-1",
   "sms": 100,
   "appel": 1300,
-  "data MO ou Go": 0.03,
-  "Validité": 7,
-  "Prtx": 300
+  "data": 0.03,
+  "validite": 7,
+  "prix": 300
  },
  {
-  "Nom": "Mango Flex 300-2",
+  "operateur": "Mango",
+  "nom": "Mango Flex 300-2",
   "sms": 100,
   "appel": 1500,
-  "data MO ou Go": 0,
-  "Validité": 7,
-  "Prtx": 300
+  "data": 0,
+  "validite": 7,
+  "prix": 300
  },
  {
-  "Nom": "Mango Flex 300-3",
+  "operateur": "Mango",
+  "nom": "Mango Flex 300-3",
   "sms": 100,
   "appel": 1400,
-  "data MO ou Go": 0.025,
-  "Validité": 7,
-  "Prtx": 300
+  "data": 0.025,
+  "validite": 7,
+  "prix": 300
  },
  {
-  "Nom": "Mango Flex 300-4",
+  "operateur": "Mango",
+  "nom": "Mango Flex 300-4",
   "sms": 100,
   "appel": 1200,
-  "data MO ou Go": 0,
-  "Validité": 7,
-  "Prtx": 300
+  "data": 0,
+  "validite": 7,
+  "prix": 300
  },
  {
-  "Nom": "Mango PS combo",
+  "operateur": "Mango",
+  "nom": "Mango PS combo",
   "sms": 10000,
   "appel": 15000,
-  "data MO ou Go": 6,
-  "Validité": 30,
-  "Prtx": 5000
+  "data": 6,
+  "validite": 30,
+  "prix": 5000
  },
  {
-  "Nom": "Mango PS 2100",
+  "operateur": "Mango",
+  "nom": "Mango PS 2100",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 4.5,
-  "Validité": 30,
-  "Prtx": 2100
+  "data": 4.5,
+  "validite": 30,
+  "prix": 2100
  },
  {
-  "Nom": "Mango PS talk",
+  "operateur": "Mango",
+  "nom": "Mango PS talk",
   "sms": 0,
   "appel": 10000,
-  "data MO ou Go": 0,
-  "Validité": 30,
-  "Prtx": 1000
+  "data": 0,
+  "validite": 30,
+  "prix": 1000
  },
  {
-  "Nom": "Mango PS 1200",
+  "operateur": "Mango",
+  "nom": "Mango PS 1200",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 2.2,
-  "Validité": 30,
-  "Prtx": 1200
+  "data": 2.2,
+  "validite": 30,
+  "prix": 1200
  },
  {
-  "Nom": "Mango PS 500",
-  "sms": 110,
+  "operateur": "Mango",
+  "nom": "Mango PS 500",
+  "sms": 0,
   "appel": 0,
-  "data MO ou Go": 0.9,
-  "Validité": 30,
-  "Prtx": 500
+  "data": 0.9,
+  "validite": 30,
+  "prix": 500
  },
  {
-  "Nom": "Mango PS 400",
+  "operateur": "Mango",
+  "nom": "Mango PS 400",
   "sms": 10000,
   "appel": 0,
-  "data MO ou Go": 0,
-  "Validité": 30,
-  "Prtx": 400
+  "data": 0,
+  "validite": 30,
+  "prix": 400
  },
  {
-  "Nom": "Mango PS 50",
+  "operateur": "Mango",
+  "nom": "Mango PS 50",
   "sms": 0,
   "appel": 0,
-  "data MO ou Go": 0.05,
-  "Validité": 1,
-  "Prtx": 300
+  "data": 0.05,
+  "validite": 1,
+  "prix": 5000
  },
-
-
-
-
  {
-    "operateur": "Hemle",
-    "Nom": "Hemle jour 99",
-    "sms": "0",
-    "appel": "750",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "99"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle jour 149",
-    "sms": "0",
-    "appel": "1460",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "149"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle jour 199",
-    "sms": "0",
-    "appel": "1950",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "199"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle jour 249",
-    "sms": "50",
-    "appel": "3500",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "99"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Semaine 499",
-    "sms": "0",
-    "appel": "3800",
-    "data": "0",
-    "validite": "7 jours",
-    "prix": "499"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Semaine 999",
-    "sms": "0",
-    "appel": "7950",
-    "data": "0",
-    "validite": "7 jours",
-    "prix": "999"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Semaine 1500",
-    "sms": "50",
-    "appel": "12200",
-    "data": "0",
-    "validite": "7 jours",
-    "prix": "1500"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Mois 2999",
-    "sms": "0",
-    "appel": "23390",
-    "data": "0",
-    "validite": "30 jours",
-    "prix": "2999"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Net 3J",
-    "sms": "0",
-    "appel": "0",
-    "data": "160",
-    "validite": "3 jours",
-    "prix": "160"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Net 599",
-    "sms": "0",
-    "appel": "0",
-    "data": "660",
-    "validite": "30 jours",
-    "prix": "599"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Net 849",
-    "sms": "0",
-    "appel": "0",
-    "data": "1 Go",
-    "validite": "30 jours",
-    "prix": "1500"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Net 949",
-    "sms": "0",
-    "appel": "0",
-    "data": "1.77 Go",
-    "validite": "30 jours",
-    "prix": "949"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle appel 100",
-    "sms": "20",
-    "appel": "300",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "100"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle appel J 250",
-    "sms": "20",
-    "appel": "750",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "250"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle appel S 300",
-    "sms": "30",
-    "appel": "900",
-    "data": "0",
-    "validite": "7 jours",
-    "prix": "300"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle appel M 600",
-    "sms": "50",
-    "appel": "1800",
-    "data": "0",
-    "validite": "30 jours",
-    "prix": "600"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle appel M 26k",
-    "sms": "500",
-    "appel": "96000",
-    "data": "0",
-    "validite": "30 jours",
-    "prix": "26000"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Illimité J",
-    "sms": "150",
-    "appel": "0",
-    "data": "0",
-    "validite": "1 jour",
-    "prix": "20"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Illimité M",
-    "sms": "9000",
-    "appel": "0",
-    "data": "0",
-    "validite": "30 jours",
-    "prix": "500"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Comp S 1000",
-    "sms": "100",
-    "appel": "3000",
-    "data": "75",
-    "validite": "7 jours",
-    "prix": "1000"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Comp S 2500",
-    "sms": "100",
-    "appel": "8500",
-    "data": "250",
-    "validite": "7 jours",
-    "prix": "1500"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Comp M 3000",
-    "sms": "250",
-    "appel": "9000",
-    "data": "250",
-    "validite": "30 jours",
-    "prix": "3000"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Comp M 5000",
-    "sms": "500",
-    "appel": "17000",
-    "data": "500",
-    "validite": "30 jours",
-    "prix": "5000"
-  },
-  {
-    "operateur": "Hemle",
-    "Nom": "Hemle Comp M 10000",
-    "sms": "500",
-    "appel": "35000",
-    "data": "1Go",
-    "validite": "30 jours",
-    "prix": "10000"
-  }
+  "operateur": "Hemle",
+  "nom": "Hemle  99",
+  "sms": 0,
+  "appel": 750,
+  "data": 0,
+  "validite": 1,
+  "prix": 99
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle  149",
+  "sms": 0,
+  "appel": 1460,
+  "data": 0,
+  "validite": 1,
+  "prix": 149
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle  199",
+  "sms": 0,
+  "appel": 1950,
+  "data": 0,
+  "validite": 1,
+  "prix": 199
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle  249",
+  "sms": 50,
+  "appel": 3500,
+  "data": 0,
+  "validite": 1,
+  "prix": 99
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Semaine 499",
+  "sms": 0,
+  "appel": 3800,
+  "data": 0,
+  "validite": 7,
+  "prix": 499
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Semaine 9?9",
+  "sms": 0,
+  "appel": 7950,
+  "data": 0,
+  "validite": 7,
+  "prix": 999
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Semaine 1500",
+  "sms": 50,
+  "appel": 12200,
+  "data": 0,
+  "validite": 7,
+  "prix": 1500
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Mois 2999",
+  "sms": 0,
+  "appel": 23390,
+  "data": 0,
+  "validite": 30,
+  "prix": 2999
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Net 3J",
+  "sms": 0,
+  "appel": 0,
+  "data": 0.16,
+  "validite": 3,
+  "prix": 160
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Net .599",
+  "sms": 0,
+  "appel": 0,
+  "data": 0.66,
+  "validite": 30,
+  "prix": 599
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Net 849",
+  "sms": 0,
+  "appel": 0,
+  "data": 1,
+  "validite": 30,
+  "prix": 1500
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Net 949",
+  "sms": 0,
+  "appel": 0,
+  "data": 1.77,
+  "validite": 30,
+  "prix": 949
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Appels 100",
+  "sms": 20,
+  "appel": 300,
+  "data": 0,
+  "validite": 1,
+  "prix": 100
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Appels J 250",
+  "sms": 20,
+  "appel": 750,
+  "data": 0,
+  "validite": 1,
+  "prix": 250
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Appels S 300",
+  "sms": 30,
+  "appel": 900,
+  "data": 0,
+  "validite": 7,
+  "prix": 300
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "HemleAppels M 600",
+  "sms": 50,
+  "appel": 1800,
+  "data": 0,
+  "validite": 30,
+  "prix": 600
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Appels M 26k",
+  "sms": 500,
+  "appel": 96000,
+  "data": 0,
+  "validite": 30,
+  "prix": 26000
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Illimité J",
+  "sms": 150,
+  "appel": 0,
+  "data": 0,
+  "validite": 1,
+  "prix": 20
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Illimité M",
+  "sms": 9000,
+  "appel": 0,
+  "data": 0,
+  "validite": 30,
+  "prix": 500
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Comp S 1000",
+  "sms": 100,
+  "appel": 3000,
+  "data": 0.075,
+  "validite": 7,
+  "prix": 1000
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Comp _S 2500",
+  "sms": 100,
+  "appel": 8500,
+  "data": 0.25,
+  "validite": 7,
+  "prix": 1500
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hernie comp M 3000",
+  "sms": 250,
+  "appel": 9009,
+  "data": 0.25,
+  "validite": 30,
+  "prix": 3000
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Comp M 5000",
+  "sms": 500,
+  "appel": 17000,
+  "data": 0.5,
+  "validite": 30,
+  "prix": 5000
+ },
+ {
+  "operateur": "Hemle",
+  "nom": "Hemle Comp M 10000",
+  "sms": 500,
+  "appel": 35000,
+  "data": 0,
+  "validite": 30,
+  "prix": 10000
+ }
 ]
