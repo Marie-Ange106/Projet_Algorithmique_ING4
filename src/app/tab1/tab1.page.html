@@ -150,7 +150,7 @@
           <ion-col *ngIf="val.value.forfait.operateur === operator"> {{val.value.forfait.nom}} </ion-col>
           <ion-col *ngIf="val.value.forfait.operateur === operator"> {{val.value.forfait.sms}} </ion-col>
           <ion-col *ngIf="val.value.forfait.operateur === operator"> {{val.value.forfait.appel}} </ion-col>
-          <ion-col *ngIf="val.value.forfait.data > 1 && val.value.forfait.operateur === operator">{{val.value.forfait.data}} Go</ion-col>
+          <ion-col *ngIf="val.value.forfait.data >= 1 && val.value.forfait.operateur === operator">{{val.value.forfait.data}} Go</ion-col>
           <ion-col *ngIf="val.value.forfait.data < 1 && val.value.forfait.operateur === operator">{{val.value.forfait.data * 1000}} Mo</ion-col>
           
           <ion-col *ngIf="val.value.forfait.operateur === operator">{{val.value.forfait.prix}}</ion-col>

@@ -29,14 +29,18 @@ export class ForfaitService {
     this.prix = prix;
     let forFaitsOptimaux: ForfaitValeur[] = [];
     let forfaitsValeur: ForfaitValeur[] = [];
-    forfaits = this.filterForfaitParJours(jours, forfaits);
-    forfaitsValeur = this.valorisationForfait(forfaits, priorite);
+    forfaits = this.filterForfaitParJours(jours, forfaits, prix);
 
+    forfaitsValeur = this.valorisationForfait(forfaits, priorite);
+    
+    
    if(forfaitsValeur.length > 0) {
     forfaitsValeur = forfaitsValeur.filter(data => {
     
       return (data.valeur > 0);
     })
+
+    console.log(forfaitsValeur);
     //console.log(forfaitsValeur);
     while (this.prix > 0) {
       this.initCache(forfaits, this.prix);
@@ -105,7 +109,7 @@ export class ForfaitService {
     //System.out.println(i);
     /*if (w - 1 < 0)
         return 0;*/
-    console.log(i,w);
+    //console.log(i,w);
     
     if (this.cache[i][w] > 0)
       return this.cache[i][w];
@@ -128,9 +132,10 @@ export class ForfaitService {
       return b;
   }
 
-  private filterForfaitParJours(jours: number, forfaits: Forfait[]): Forfait[] {
+  private filterForfaitParJours(jours: number, forfaits: Forfait[], montant: number): Forfait[] {
     let temp: Forfait[] = [];
-    temp = forfaits.filter(val => val.validite >= jours);
+    temp = forfaits.filter(val => (val.validite >= jours && val.prix <= montant));
+    //temp = forfaits.filter(val => (val.validite >= jours));
     /*  forfaits.forEach(val -> {
          if (forfait. >= heure)
              temp.add(forfait);
