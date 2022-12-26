@@ -14,4 +14,8 @@ export class ForfaitsService {
   getForfait(): Observable<Forfait[]>{
     return this.httpClient.get<Forfait[]>("/assets/forfaits.json")
   }
+
+  postData(forfaits: Forfait[]){
+    return this.httpClient.post("/assets/forfait.json", forfaits)
+}
 }

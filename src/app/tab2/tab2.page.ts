@@ -1,14 +1,9 @@
+import { NgxCsvParser } from 'ngx-csv-parser';
+import { DowloadFileService } from './../services/dowload-file.service';
 import { Forfait } from './../class/forfait';
 import { Component } from '@angular/core';
 import { ForfaitsService } from '../services/forfaits.service';
-import { finalize, tap } from 'rxjs/operators';
-import { AngularFireStorage, AngularFireUploadTask,
-} from '@angular/fire/compat/storage';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Papa } from 'ngx-papaparse';
 
 export interface imgFile {
   name: string;
@@ -22,102 +17,32 @@ export interface imgFile {
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
-  // File upload task
-  fileUploadTask!: AngularFireUploadTask;
-  // Upload progress
-  percentageVal!: Observable<number | undefined>;
-  // Track file uploading with snapshot
-  trackSnapshot!: Observable<any>;
-  // Uploaded File URL
-  UploadedImageURL!: Observable<string>;
-  // Uploaded image collection
-  files!: Observable<imgFile[]>;
-  // Image specifications
-  imgName!: string;
-  imgSize!: number;
-  // File uploading status
-  isFileUploading!: boolean;
-  isFileUploaded!: boolean;
-  private filesCollection: AngularFirestoreCollection<imgFile>;
+  csvRecords: any;
+  header: boolean = false;
 
    search = false;
    forfaits:Forfait[] = [];
    forfaitsPerOp:Forfait[] = [];
    operateurs = new Set();
    selectOp  = 'Mango';
-  constructor( private afs: AngularFirestore,private afStorage: AngularFireStorage, private forfaitsService:ForfaitsService) {
-    this.isFileUploading = false;
-    this.isFileUploaded = false;
-    // Define uploaded files collection
-    this.filesCollection = afs.collection<imgFile>('imagesCollection');
-    this.files = this.filesCollection.valueChanges();
+   forfaitsUpload: Forfait[] = []
+  constructor(
+    private ngxCsvParser: NgxCsvParser,
+    private forfaitsService:ForfaitsService, private downloadFile: DowloadFileService, private papaParse: Papa) {
+  
   }
 
-  uploadImage(event: FileList) {
-    const file = event.item(0);
-    // Image validation
-    if (file!.type.split('/')[0] !== 'image') {
-      console.log('File type is not supported!');
-      return;
-    }
-    this.isFileUploading = true;
-    this.isFileUploaded = false;
-    this.imgName = file!.name;
-    // Storage path
-    const fileStoragePath = `filesStorage/${new Date().getTime()}_${file!.name}`;
-    // Image reference
-    const imageRef = this.afStorage.ref(fileStoragePath);
-    // File upload task
-    this.fileUploadTask = this.afStorage.upload(fileStoragePath, file);
-    // Show uploading progress
-    this.percentageVal = this.fileUploadTask.percentageChanges();
-    this.trackSnapshot = this.fileUploadTask.snapshotChanges().pipe(
-      finalize(() => {
-        // Retreive uploaded image storage path
-        this.UploadedImageURL = imageRef.getDownloadURL();
-        this.UploadedImageURL.subscribe(
-          (resp) => {
-            this.storeFilesFirebase({
-              name: file!.name,
-              filepath: resp,
-              size: this.imgSize,
-            });
-            this.isFileUploading = false;
-            this.isFileUploaded = true;
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-      }),
-      tap((snap:any) => {
-        this.imgSize = snap.totalBytes;
-      })
-    );
-  }
-   
-  storeFilesFirebase(image: imgFile) {
-    const fileId = this.afs.createId();
-    this.filesCollection
-      .doc(fileId)
-      .set(image)
-      .then((res:any) => {
-        console.log(res);
-      })
-      .catch((err:any) => {
-        console.log(err);
-      });
-  }
 
   ionViewDidEnter(){
     //subcrive recure la valeur et la met dans reponse
     this.forfaitsService.getForfait().subscribe(
       (reponse: Forfait[])=>{
+        
         this.forfaits=reponse
         this.forfaits.forEach(
         data => {
           this.operateurs.add(data.operateur)
+          
         }
         )
         console.log(this.forfaits);
@@ -140,5 +65,72 @@ export class Tab2Page {
 
   openModal(){
 
+  }
+
+  download() {
+    this.downloadFile.downloadFile()
+  }
+
+  uploadFile(e: any) {
+    let fileReaded :any ;
+    fileReaded = e.target.files[0];
+    let type = e.target.files[0].name.split('.').pop();
+    console.log(fileReaded);
+    const fileList = e.target.files;
+    console.log()
+
+  this.header = (this.header as unknown as string) === 'true' || this.header === true;
+
+    this.ngxCsvParser.parse(fileList[0], { header: this.header, delimiter: ',', encoding: 'utf8' })
+      .pipe().subscribe({
+        next: (result): void => {
+          console.log('Result', result);
+          this.csvRecords = result;
+        }
+      });
+    
+    this.papaParse.parse(fileList[0], {
+   
+      complete: (results, file) => {
+        console.log('Parsed: ', results, file);
+        let head = results.data.splice(0,1)[0];
+        let cvsData = results.data;
+        for (let i = 1; i < cvsData.length; i++) {
+          let forfait = new Forfait();
+          for (let j = 0; j < cvsData[i].length; j++) {
+            if(i == 0) {
+              forfait.nom = cvsData[i][j];
+            }
+            if(i == 1) {
+              forfait.sms = cvsData[i][j];
+            }
+            if(i == 2) {
+              forfait.appel = cvsData[i][j];
+            }
+            if(i == 3) {
+              forfait.data = cvsData[i][j];
+            }
+            if(i == 4) {
+              forfait.validite = cvsData[i][j];
+            }
+            if(i == 5) {
+              forfait.prix = cvsData[i][j];
+            }
+            
+          }
+          this.forfaitsUpload.push(forfait)
+        }
+     console.log(this.forfaitsUpload);
+     this.forfaits = this.forfaits.concat(this.forfaitsUpload)
+    }
+    });
+  }
+
+  papaParseChunk(chunk: any) {
+    console.log("Chunk:", chunk.data);
+  }
+
+  papaParseCompleteFunction(results: any) {
+     console.log('Results', results);
   }
 }

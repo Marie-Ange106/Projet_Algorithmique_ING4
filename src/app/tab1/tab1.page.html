@@ -140,10 +140,15 @@
           <ion-col>SMS</ion-col>
           <ion-col>Appel</ion-col>
           <ion-col>Data</ion-col>
-          <ion-col>Prix</ion-col>
+          
           <ion-col>Jrs</ion-col>
-          <ion-col>Nombre</ion-col>
-          <ion-col>Total</ion-col>
+          <ion-col>Prix</ion-col>
+          <ion-col>Ttl</ion-col>
+        </ion-row>
+        <ion-row *ngIf="forfait.size === 0">
+          <ion-col size="12">
+            <ion-label>Aucun forfait trouvé</ion-label>
+          </ion-col>
         </ion-row>
         <ion-row *ngFor="let val of forfait | keyvalue">
       
@@ -152,10 +157,9 @@
           <ion-col *ngIf="val.value.forfait.operateur === operator"> {{val.value.forfait.appel}} </ion-col>
           <ion-col *ngIf="val.value.forfait.data >= 1 && val.value.forfait.operateur === operator">{{val.value.forfait.data}} Go</ion-col>
           <ion-col *ngIf="val.value.forfait.data < 1 && val.value.forfait.operateur === operator">{{val.value.forfait.data * 1000}} Mo</ion-col>
-          
-          <ion-col *ngIf="val.value.forfait.operateur === operator">{{val.value.forfait.prix}}</ion-col>
           <ion-col *ngIf="val.value.forfait.operateur === operator">{{val.value.forfait.validite}}</ion-col>
-          <ion-col *ngIf="val.value.forfait.operateur === operator">x {{val.value.nb}}</ion-col>
+          <ion-col *ngIf="val.value.forfait.operateur === operator">{{val.value.forfait.prix}} x {{val.value.nb}}</ion-col>
+        
           <ion-col *ngIf="val.value.forfait.operateur === operator">{{val.value.forfait.prix * val.value.nb}}</ion-col>
         </ion-row>
       </ion-grid>

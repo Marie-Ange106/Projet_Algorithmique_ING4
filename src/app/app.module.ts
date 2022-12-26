@@ -9,17 +9,30 @@ import { AppComponent } from './app.component';
 import {HttpClientModule,HttpClient} from '@angular/common/http';
 
 // Firebase + environment
-import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { HTTP } from '@ionic-native/http/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx'
+import { NgxCsvParserModule } from 'ngx-csv-parser';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,AngularFireModule.initializeApp(environment.firebaseConfig),
+  imports: [
+    BrowserModule, 
+    //AngularFireModule.initializeApp(environment.firebase),  
     AngularFirestoreModule,
-    AngularFireStorageModule,],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },HttpClient],
+    IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    
+  
+  ],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },HttpClient, File, HTTP, NgxCsvParserModule,
+    SocialSharing
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

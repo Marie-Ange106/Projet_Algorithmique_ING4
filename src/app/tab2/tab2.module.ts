@@ -1,3 +1,4 @@
+import { NgxCsvParserModule } from 'ngx-csv-parser';
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,8 @@ import { FormatFileSizePipe } from './format-file-size.pipe';
     IonicModule,
     CommonModule,
     FormsModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    NgxCsvParserModule
   ],
   declarations: [Tab2Page ,  FormatFileSizePipe]
 })
