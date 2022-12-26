@@ -1,5 +1,15 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar color="base">
+    <!-- <ion-title>LISTE DES FORFAITS</ion-title> -->
+    <div class="main-header">
+      <ion-label color="frgreen"><h1 class="font-bold  uppercase text-center">Liste Des Forfaits</h1></ion-label>
+    </div>
+    <!-- Résulat -->
+    <div class="d-flex overflow-x justify-around">
+      <div *ngFor="let operator of operateurs" class="pl-15">
+        <h4><ion-text (click)="choosedOp(operator)" [ngClass]="{ 'tablinks': selectOp == operator}">{{operator}}</ion-text></h4>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -7,14 +17,26 @@
   <!-- <div class="content-img m-auto">
     <img src="assets/images/bg1.png"/>
   </div> -->
-  <div class="main-header">
-    <ion-label color="frgreen"><h1 class="font-bold  uppercase text-center">Liste Des Forfaits</h1></ion-label>
+  <ion-card class="ion-text-center" *ngIf="!isFileUploading && !isFileUploaded">
+    <ion-card-header>
+      <ion-card-title>Choose Images to Upload</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="primary" size="medium">
+        <!-- (change)="uploadImage($event.target?.files )" -->
+        <input type="file"  />
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="percentageVal | async as percentage">
+    Progress: {{ percentage | number }}%
+    <ion-progress-bar value="{{ percentage / 100 }}"></ion-progress-bar>
   </div>
-  <!-- Résulat -->
-  <div class="d-flex overflow-x justify-around">
-    <div *ngFor="let operator of operateurs" class="pl-15">
-      <h3><ion-text (click)="choosedOp(operator)" [ngClass]="{ 'tablinks': selectOp == operator}">{{operator}}</ion-text></h3>
-    </div>
+  <div *ngIf="trackSnapshot | async as snap">
+    <!-- | formatFileSize  -->
+    <!-- | formatFileSize  -->
+    File size: {{ snap.totalBytes}} Data transfered: {{
+    snap.bytesTransferred}}
   </div>
   <div class="">
     <!-- <ion-grid *ngFor="let operator of operateurs"> -->
@@ -60,12 +82,12 @@
         <ion-col size="6" *ngFor="let forfait of forfaitsPerOp" class="mb-20">
           <!-- <div> -->
           <ion-card color="frgreenextralight" class="br-20 card-forf m-0">
-            <div class="mt--20 h-50 mb-20"><h2 class="text-center">{{forfait.nom}}</h2>
+            <div class="mt--20 mb-20"><h4 class="text-center">{{forfait.nom}}</h4>
             </div>
             <div>
               <div class="d-flex justify-between mt-5"><div>SMS</div><div>{{forfait.sms}}</div></div>
-              <div class="d-flex justify-between mt-5"><div>APPELS</div><div>{{forfait.appel}} Fcfa</div></div>
-              <div class="d-flex justify-between mt-5" *ngIf="forfait.data > 1"><div>DATA</div><div>{{forfait.data}} Go</div></div>
+              <div class="d-flex justify-between mt-5"><div>APPELS</div><div>{{forfait.appel}}</div></div>
+              <div class="d-flex justify-between mt-5" *ngIf="forfait.data >= 1"><div>DATA</div><div>{{forfait.data}} Go</div></div>
               <div class="d-flex justify-between mt-5" *ngIf="forfait.data < 1"><div>DATA</div><div>{{forfait.data * 1000}} Mo</div></div>
               <div class="d-flex justify-between mt-5"><div>VALIDITE</div><div>{{forfait.validite}} Jour(s)</div></div>
               <div class="d-flex justify-between mt-5"><div>PRIX</div><div>{{forfait.prix}} Fcfa</div></div>
@@ -77,4 +99,10 @@
       </ion-row>
     </ion-grid>
   </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openModal()" expand="block" color="frgreen">
+      
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

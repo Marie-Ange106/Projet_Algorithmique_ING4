@@ -1,17 +1,30 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+  <ion-toolbar color="frgreenextralight">
+   <h5  class="text-center"><ion-text>Comment Fonctionne l'application ?</ion-text></h5>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="frgreenextralight">
+  <div class="img-home">
+    <ion-img src="assets/images/bg2.png"></ion-img>
+  </div>
+  <ion-slides pager="true"  mode="ios" class="mb-20">
+    <ion-slide>
+      <div class="text-slide">
+        <ion-text>Our sales fruits application is the solution to all your problems</ion-text>
+      </div>
+    </ion-slide>
 
-  
+    <ion-slide>
+      <div class="text-slide">
+        <ion-text>The music softens the mood and revives the flame of love in you</ion-text>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="text-slide">
+        <ion-text>Stop listening to music online, RicheMusic is here for you</ion-text>
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
